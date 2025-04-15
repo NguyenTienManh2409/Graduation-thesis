@@ -8,7 +8,7 @@ async function addCart(type) {
         toastr.warning("Hãy đăng nhập để thực hiện chức năng này")
         return;
     }
-    var url = 'http://localhost:8080/api/cart/user/create?idcolor='+idColorCart;
+    var url = '/api/cart/user/create?idcolor='+idColorCart;
     const response = await fetch(url, {
         method: 'POST',
         headers: new Headers({
@@ -31,7 +31,7 @@ async function loadAllCart() {
     if(token == null){
         window.location.href = 'dangnhap'
     }
-    var url = 'http://localhost:8080/api/cart/user/my-cart' ;
+    var url = '/api/cart/user/my-cart' ;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -83,7 +83,7 @@ async function removeCart(id) {
     if(con == false){
         return;
     }
-    var url = 'http://localhost:8080/api/cart/user/delete?id='+id ;
+    var url = '/api/cart/user/delete?id='+id ;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -96,9 +96,9 @@ async function removeCart(id) {
 }
 
 async function upDownQuantity(id, type) {
-    var url = 'http://localhost:8080/api/cart/user/down-cart?id='+id ;
+    var url = '/api/cart/user/down-cart?id='+id ;
     if(type == "UP"){
-        url = 'http://localhost:8080/api/cart/user/up-cart?id='+id ;
+        url = '/api/cart/user/up-cart?id='+id ;
     }
     const response = await fetch(url, {
         method: 'GET',

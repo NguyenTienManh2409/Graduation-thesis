@@ -1,7 +1,7 @@
 var list = []
 
 async function loadAddress() {
-    var urladd = 'http://localhost:8080/api/address/public/province';
+    var urladd = '/api/address/public/province';
     const response = await fetch(urladd, {
         method: 'GET'
     });

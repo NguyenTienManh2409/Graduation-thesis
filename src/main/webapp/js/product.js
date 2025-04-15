@@ -1,7 +1,7 @@
 var size = 5;
 
 async function loadSanPhamBanChay(page) {
-    var url = 'http://localhost:8080/api/product/public/best-saler?page=' + page + '&size=' + size+'&sort=quantitySold,desc';
+    var url = '/api/product/public/best-saler?page=' + page + '&size=' + size+'&sort=quantitySold,desc';
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -35,7 +35,7 @@ async function loadSanPhamBanChay(page) {
 }
 
 async function loadSanPhamMoiNhat(page) {
-    var url = 'http://localhost:8080/api/product/public/new-product?page=' + page + '&size=' + size+'&sort=id,desc';
+    var url = '/api/product/public/new-product?page=' + page + '&size=' + size+'&sort=id,desc';
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -70,7 +70,7 @@ async function loadSanPhamMoiNhat(page) {
 
 
 async function loadPhuKien(page) {
-    var url = 'http://localhost:8080/api/product/public/phu-kien?page=' + page + '&size=' + size+'&sort=id,desc';
+    var url = '/api/product/public/phu-kien?page=' + page + '&size=' + size+'&sort=id,desc';
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -105,7 +105,7 @@ async function loadPhuKien(page) {
 
 
 async function loadSanPhamNoiBat() {
-    var url = 'http://localhost:8080/api/product/public/best-saler?page=0&size=4&sort=quantitySold,desc';
+    var url = '/api/product/public/best-saler?page=0&size=4&sort=quantitySold,desc';
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -130,7 +130,7 @@ async function loadSanPhamNoiBat() {
 
 
 async function loadSanPhamNoiBatCart() {
-    var url = 'http://localhost:8080/api/product/public/best-saler?page=0&size=4&sort=quantitySold,desc';
+    var url = '/api/product/public/best-saler?page=0&size=4&sort=quantitySold,desc';
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -157,7 +157,7 @@ var listbonho = [];
 async function loadAProduct() {
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
-    var url = 'http://localhost:8080/api/product/public/findById?id=' + id;
+    var url = '/api/product/public/findById?id=' + id;
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -243,7 +243,7 @@ function loadBoNho(categoryType){
 
 
 async function loadMauSac(idbonho,e){
-    var url = 'http://localhost:8080/api/product-color/public/find-by-storage?id=' + idbonho;
+    var url = '/api/product-color/public/find-by-storage?id=' + idbonho;
     const response = await fetch(url, {
     });
     var listmausac = await response.json();
@@ -286,7 +286,7 @@ function chonMauSac(idmausac, e, price){
 }
 
 async function loadSanPhamLienQuan(idtrademark, idcategory, idproduct) {
-    var url = 'http://localhost:8080/api/product/public/san-pham-lienquan?page=0&size=4&sort=id,desc&id='+idproduct;
+    var url = '/api/product/public/san-pham-lienquan?page=0&size=4&sort=id,desc&id='+idproduct;
     idcategory != null? url += '&idcategory='+idcategory : url+= ''
     idtrademark != null? url += '&idtrademark='+idtrademark : url+= ''
     const response = await fetch(url, {
@@ -330,7 +330,7 @@ async function sanPhamByThuongHieuAndDanhMuc(page) {
     var danhmuc = uls.searchParams.get("danhmuc");
     var search = uls.searchParams.get("search");
     
-    var url = 'http://localhost:8080/api/product/public/loc-san-pham?page=' + page + '&size=' + size+'&sort=id,desc&small=0&large=1000000000';
+    var url = '/api/product/public/loc-san-pham?page=' + page + '&size=' + size+'&sort=id,desc&small=0&large=1000000000';
     if(thuonghieu != null){
         url += '&trademark='+thuonghieu
     }
@@ -380,7 +380,7 @@ async function locSanPham(page) {
     var mucgia = document.getElementById("mucgia").value
     var sort = document.getElementById("sort").value
     
-    var url = 'http://localhost:8080/api/product/public/loc-san-pham?page=' + page + '&size=' + size+'&sort='+sort+'&large='+mucgia.split("-")[1]+'&small='+mucgia.split("-")[0]+'&search='+search;
+    var url = '/api/product/public/loc-san-pham?page=' + page + '&size=' + size+'&sort='+sort+'&large='+mucgia.split("-")[1]+'&small='+mucgia.split("-")[0]+'&search='+search;
 
     if(thuonghieu != null && thuonghieu != ""){
         url += '&trademark='+thuonghieu

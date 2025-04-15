@@ -3,7 +3,7 @@ async function revenueYear(nam) {
     if (nam < 2000) {
         nam = new Date().getFullYear()
     }
-    var url = 'http://localhost:8080/api/statistic/admin/revenue-year?year=' + nam;
+    var url = '/api/statistic/admin/revenue-year?year=' + nam;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -68,9 +68,9 @@ async function loadLichSuNap() {
     $('#example').DataTable().destroy();
     var start = document.getElementById("start").value
     var end = document.getElementById("end").value
-    var url = 'http://localhost:8080/api/admin/all-history-pay';
+    var url = '/api/admin/all-history-pay';
     if (start != "" && end != "") {
-        url = 'http://localhost:8080/api/admin/all-history-pay?start=' + start + '&end=' + end;
+        url = '/api/admin/all-history-pay?start=' + start + '&end=' + end;
     }
     const response = await fetch(url, {
         method: 'GET',

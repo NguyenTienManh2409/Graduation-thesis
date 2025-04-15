@@ -1,7 +1,7 @@
 async function loadBanner() {
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    var url = 'http://localhost:8080/api/banner/public/find-by-page?page='+page
+    var url = '/api/banner/public/find-by-page?page='+page
     const response = await fetch(url, {
     });
     var list = await response.json();

@@ -71,7 +71,7 @@ switch (current_day) {
 }
 
 async function thongke() {
-    var url = 'http://localhost:8080/api/statistic/admin/revenue-this-month';
+    var url = '/api/statistic/admin/revenue-this-month';
     const response = await fetch(url, {
         headers: new Headers({
             'Authorization': 'Bearer ' + token
@@ -80,7 +80,7 @@ async function thongke() {
     var result = await response.text();
     document.getElementById("doanhThu").innerHTML = formatmoney(result)
 
-    var url = 'http://localhost:8080/api/statistic/admin/number-admin';
+    var url = '/api/statistic/admin/number-admin';
     const res = await fetch(url, {
         headers: new Headers({
             'Authorization': 'Bearer ' + token
@@ -90,7 +90,7 @@ async function thongke() {
     document.getElementById("soLuongNV").innerHTML = result
 
 
-    var url = 'http://localhost:8080/api/statistic/admin/number-product';
+    var url = '/api/statistic/admin/number-product';
     const resp = await fetch(url, {
         headers: new Headers({
             'Authorization': 'Bearer ' + token
@@ -100,7 +100,7 @@ async function thongke() {
     document.getElementById("soLuongMH").innerHTML = result
 
 
-    var url = 'http://localhost:8080/api/statistic/admin/revenue-today';
+    var url = '/api/statistic/admin/revenue-today';
     const respo = await fetch(url, {
         headers: new Headers({
             'Authorization': 'Bearer ' + token
@@ -109,7 +109,7 @@ async function thongke() {
     var result = await respo.text();
     document.getElementById("doanhThuNgay").innerHTML = formatmoney(result)
 
-    var url = 'http://localhost:8080/api/statistic/admin/number-invoice-today-finish';
+    var url = '/api/statistic/admin/number-invoice-today-finish';
     const respon = await fetch(url, {
         headers: new Headers({
             'Authorization': 'Bearer ' + token

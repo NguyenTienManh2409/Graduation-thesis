@@ -1,6 +1,6 @@
 var token = localStorage.getItem("token");
 async function loadAllProductSelect(add) {
-    var url = 'http://localhost:8080/api/product/public/findAll-list';
+    var url = '/api/product/public/findAll-list';
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -20,7 +20,7 @@ async function loadAllProductSelect(add) {
 }
 
 async function loadBoNhoSp(idpro) {
-    var url = 'http://localhost:8080/api/product/admin/findById?id=' + idpro;
+    var url = '/api/product/admin/findById?id=' + idpro;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -58,16 +58,16 @@ async function loadBoNhoSp(idpro) {
 
 var size = 1;
 async function loadImportP(page, idproduct, from, to) {
-    var url = 'http://localhost:8080/api/import-product/admin/findAll?page=' + page + '&size=' + size;
+    var url = '/api/import-product/admin/findAll?page=' + page + '&size=' + size;
     if (idproduct != null) {
-        url = 'http://localhost:8080/api/import-product/admin/findByProductAndDate?page=' + page + '&size=' + size + '&idproduct=' + idproduct;
+        url = '/api/import-product/admin/findByProductAndDate?page=' + page + '&size=' + size + '&idproduct=' + idproduct;
         if (from != null && to != null && from != "" && to != "") {
             url += '&from=' + from + '&to=' + to;
         }
     }
     if (idproduct == null) {
         if (from != null && to != null && from != 'null' && to != 'null') {
-            url = 'http://localhost:8080/api/import-product/admin/findByProductAndDate?page=' + page + '&size=' + size + '&from=' + from + '&to=' + to;;
+            url = '/api/import-product/admin/findByProductAndDate?page=' + page + '&size=' + size + '&from=' + from + '&to=' + to;;
         }
     }
     console.log(url)
@@ -133,9 +133,9 @@ async function saveImportPro() {
     if (color == null) {
         alert("hãy chọn màu sắc sản phẩm");
     }
-    var url = 'http://localhost:8080/api/import-product/admin/create';
+    var url = '/api/import-product/admin/create';
     if (id != null) {
-        url = 'http://localhost:8080/api/import-product/admin/update';
+        url = '/api/import-product/admin/update';
     }
     importPro = {
         "id": id,

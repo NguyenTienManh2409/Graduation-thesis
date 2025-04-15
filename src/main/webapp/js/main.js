@@ -86,7 +86,7 @@ function formatmoney(money) {
 }
 
 async function loadThuongHieuAndPhuKien(){
-    var url = 'http://localhost:8080/api/trademark/public/findAll';
+    var url = '/api/trademark/public/findAll';
     const response = await fetch(url, {});
     var list = await response.json();
     var main = '<div class="owl-carousel owl-2">'
@@ -100,7 +100,7 @@ async function loadThuongHieuAndPhuKien(){
     loadCou2();
 
 
-    var url = 'http://localhost:8080/api/category/public/find-by-type?type=PHU_KIEN';
+    var url = '/api/category/public/find-by-type?type=PHU_KIEN';
     const res = await fetch(url, {});
     var list = await res.json();
     var main = '<div class="owl-carousel owl-3">'
@@ -234,7 +234,7 @@ function appendRecivers (message) {
 
 
 async function loadMyChat() {
-    var url = 'http://localhost:8080/api/chat/user/my-chat';
+    var url = '/api/chat/user/my-chat';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -266,7 +266,7 @@ async function countCart() {
     if(token == null){
         return;
     }
-    var url = 'http://localhost:8080/api/cart/user/count-cart' ;
+    var url = '/api/cart/user/count-cart' ;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -282,7 +282,7 @@ async function countCart() {
 
 async function checkroleUser() {
     var token = localStorage.getItem("token");
-    var url = 'http://localhost:8080/api/user/check-role-user';
+    var url = '/api/user/check-role-user';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({

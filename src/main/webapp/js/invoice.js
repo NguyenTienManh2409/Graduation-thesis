@@ -1,5 +1,5 @@
 async function loadMyInvoice() {
-    var url = 'http://localhost:8080/api/invoice/user/find-by-user';
+    var url = '/api/invoice/user/find-by-user';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -28,7 +28,7 @@ async function loadMyInvoice() {
 }
 
 async function loadDetailInvoice(id) {
-    var url = 'http://localhost:8080/api/invoice-detail/user/find-by-invoice?idInvoice='+id;
+    var url = '/api/invoice-detail/user/find-by-invoice?idInvoice='+id;
     const res = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -53,7 +53,7 @@ async function loadDetailInvoice(id) {
     }
     document.getElementById("listDetailinvoice").innerHTML = main
 
-    var url = 'http://localhost:8080/api/invoice/user/find-by-id?idInvoice='+id;
+    var url = '/api/invoice/user/find-by-id?idInvoice='+id;
     const resp = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -78,7 +78,7 @@ async function cancelInvoice(id) {
     if(con == false){
         return;
     }
-    var url = 'http://localhost:8080/api/invoice/user/cancel-invoice?idInvoice='+id;
+    var url = '/api/invoice/user/cancel-invoice?idInvoice='+id;
     const res = await fetch(url, {
         method: 'POST',
         headers: new Headers({
@@ -99,7 +99,7 @@ async function cancelInvoice(id) {
 async function timKiemDonHang() {
     var id = document.getElementById("madonhang").value
     var phone = document.getElementById("sodienthoai").value
-    var url = 'http://localhost:8080/api/invoice/public/tim-kiem-don-hang?id='+id+'&phone='+phone;
+    var url = '/api/invoice/public/tim-kiem-don-hang?id='+id+'&phone='+phone;
     const response = await fetch(url, {
     });
     var result = await response.json();

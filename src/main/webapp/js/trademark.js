@@ -1,5 +1,5 @@
 async function loadAllTrademark(){
-    var url = 'http://localhost:8080/api/trademark/public/findAll';
+    var url = '/api/trademark/public/findAll';
     const res = await fetch(url, {});
     var list = await res.json();
     var main = '<option value="">Tất cả hãng</option>'

@@ -6,7 +6,7 @@ async function loadAProduct() {
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
     if (id != null) {
-        var url = 'http://localhost:8080/api/product/admin/findById?id=' + id;
+        var url = '/api/product/admin/findById?id=' + id;
         const response = await fetch(url, {
             method: 'GET',
             headers: new Headers({
@@ -82,9 +82,9 @@ async function saveProduct() {
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
 
-    var url = 'http://localhost:8080/api/product/admin/create';
+    var url = '/api/product/admin/create';
     if (id != null) {
-        url = 'http://localhost:8080/api/product/admin/update';
+        url = '/api/product/admin/update';
     }
 
     var manhinh = document.getElementById("manhinh").value
@@ -167,7 +167,7 @@ async function uploadMultipleFile(listF) {
     for (i = 0; i < listF.length; i++) {
         formData.append("file", listF[i].files[0])
     }
-    var urlUpload = 'http://localhost:8080/api/public/upload-multiple-file-order-response';
+    var urlUpload = '/api/public/upload-multiple-file-order-response';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -180,7 +180,7 @@ async function uploadMultipleFileNotResp() {
     for (i = 0; i < listFile.length; i++) {
         formData.append("file", listFile[i])
     }
-    var urlUpload = 'http://localhost:8080/api/public/upload-multiple-file';
+    var urlUpload = '/api/public/upload-multiple-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -196,7 +196,7 @@ async function uploadMultipleFileNotResp() {
 async function uploadFile(filePath) {
     const formData = new FormData()
     formData.append("file", filePath.files[0])
-    var urlUpload = 'http://localhost:8080/api/public/upload-file';
+    var urlUpload = '/api/public/upload-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -208,7 +208,7 @@ async function uploadFile(filePath) {
 
 
 async function loadAllCategorySelect() {
-    var url = 'http://localhost:8080/api/category/public/findAll';
+    var url = '/api/category/public/findAll';
     const response = await fetch(url, {
     });
     var list = await response.json();
@@ -219,7 +219,7 @@ async function loadAllCategorySelect() {
     document.getElementById("danhmucsp").innerHTML = main
 }
 async function loadAllTradeMarkSelect() {
-    var url = 'http://localhost:8080/api/trademark/public/findAll';
+    var url = '/api/trademark/public/findAll';
     const response = await fetch(url, {
     });
     var list = await response.json();
@@ -375,7 +375,7 @@ async function addMauSac(){
 async function uploadFileResponse(filePath) {
     const formData = new FormData()
     formData.append("file", filePath.files[0])
-    var urlUpload = 'http://localhost:8080/api/public/upload-file';
+    var urlUpload = '/api/public/upload-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -423,7 +423,7 @@ async function deleteProductStorage(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/product-storage/admin/delete?id=' + id;
+    var url = '/api/product-storage/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -450,7 +450,7 @@ async function deleteProductColor(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/product-color/admin/delete?id=' + id;
+    var url = '/api/product-color/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -473,7 +473,7 @@ async function deleteProductColor(id) {
 
 
 async function loadttbonho(id){
-    var url = 'http://localhost:8080/api/product-storage/public/find-by-id?id=' + id;
+    var url = '/api/product-storage/public/find-by-id?id=' + id;
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -483,7 +483,7 @@ async function loadttbonho(id){
 }
 
 async function loadttMausac(id, idstorage){
-    var url = 'http://localhost:8080/api/product-color/public/find-by-id?id=' + id;
+    var url = '/api/product-color/public/find-by-id?id=' + id;
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -514,7 +514,7 @@ async function updateProductStorage() {
         "ram":ram,
         "rom":rom
     }
-    var url = 'http://localhost:8080/api/product-storage/admin/update';
+    var url = '/api/product-storage/admin/update';
 
     const response = await fetch(url, {
         method: 'POST',
@@ -542,7 +542,7 @@ async function setImginput() {
     document.getElementById("btnupdatemausac").disabled = true
     const formData = new FormData()
     formData.append("file", filePath.files[0])
-    var urlUpload = 'http://localhost:8080/api/public/upload-file';
+    var urlUpload = '/api/public/upload-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -571,7 +571,7 @@ async function updateProductImage() {
         "image":image,
         "productStorage":{"id":bonho},
     }
-    var url = 'http://localhost:8080/api/product-color/admin/update';
+    var url = '/api/product-color/admin/update';
 
     const response = await fetch(url, {
         method: 'POST',
@@ -598,7 +598,7 @@ async function loadProduct(page, param) {
     param == null?param="":param=param
     var category = document.getElementById("danhmuc").value
     var trademark = document.getElementById("thuonghieu").value
-    var url = 'http://localhost:8080/api/product/public/find-all-by-admin?page=' + page + '&size=' + size + '&search=' + param;
+    var url = '/api/product/public/find-all-by-admin?page=' + page + '&size=' + size + '&search=' + param;
     if(category != "" && category != null){
         url += '&category='+category
     }
@@ -645,7 +645,7 @@ async function deleteProduct(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/product/admin/delete?id=' + id;
+    var url = '/api/product/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -667,7 +667,7 @@ async function deleteProductImage(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/product-image/admin/delete?id=' + id;
+    var url = '/api/product-image/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({

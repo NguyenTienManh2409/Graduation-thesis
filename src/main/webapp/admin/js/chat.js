@@ -66,7 +66,7 @@ async function loadListUserChat(){
     var uls = new URL(document.URL)
     var userid = uls.searchParams.get("user");
     var param = document.getElementById("keysearchuser").value
-    var urlAccount = 'http://localhost:8080/api/chat/admin/getAllUserChat';
+    var urlAccount = '/api/chat/admin/getAllUserChat';
     if(param != ''){
         urlAccount += '?search='+param
     }
@@ -104,7 +104,7 @@ async function loadTinNhan(){
         document.getElementById("mainchatadmin").style.display = "none";
         return;
     }
-    var url = 'http://localhost:8080/api/chat/admin/getListChat?idreciver='+userid;
+    var url = '/api/chat/admin/getListChat?idreciver='+userid;
     const res = await fetch(url, {
         method: 'GET',
         headers: new Headers({

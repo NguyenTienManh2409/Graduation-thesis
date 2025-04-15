@@ -4,7 +4,7 @@ async function loadCategory(page, param) {
     if (param == null) {
         param = "";
     }
-    var url = 'http://localhost:8080/api/category/public/search?page=' + page + '&size=' + size + '&q=' + param;
+    var url = '/api/category/public/search?page=' + page + '&size=' + size + '&q=' + param;
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -34,7 +34,7 @@ async function loadCategory(page, param) {
 }
 
 async function loadTypeCategory() {
-    var url = 'http://localhost:8080/api/category/public/get-all-category-type';
+    var url = '/api/category/public/get-all-category-type';
     const response = await fetch(url, {
     });
     var list = await response.json();
@@ -48,7 +48,7 @@ async function loadTypeCategory() {
 
 
 async function loadACategory(id) {
-    var url = 'http://localhost:8080/api/category/admin/findById?id=' + id;
+    var url = '/api/category/admin/findById?id=' + id;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -72,9 +72,9 @@ async function saveCategory() {
     var catename = document.getElementById("catename").value
     var catetype = document.getElementById("catetype").value
 
-    var url = 'http://localhost:8080/api/category/admin/create';
+    var url = '/api/category/admin/create';
     if (id != "" && id != null) {
-        url = 'http://localhost:8080/api/category/admin/update';
+        url = '/api/category/admin/update';
     }
     var category = {
         "id": id,
@@ -105,7 +105,7 @@ async function deleteCategory(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/category/admin/delete?id=' + id;
+    var url = '/api/category/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -123,7 +123,7 @@ async function deleteCategory(id) {
 }
 
 async function loadCategoryProduct() {
-    var url = 'http://localhost:8080/api/category/public/findAll';
+    var url = '/api/category/public/findAll';
     const response = await fetch(url, {
         method: 'GET'
     });

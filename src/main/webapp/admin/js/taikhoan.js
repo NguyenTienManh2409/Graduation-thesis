@@ -4,7 +4,7 @@ async function loadAllUser(page, param) {
     if (param == null) {
         param = "";
     }
-    var url = 'http://localhost:8080/api/admin/get-user-by-role?page=' + page + '&size=' + size + '&q=' + param;
+    var url = '/api/admin/get-user-by-role?page=' + page + '&size=' + size + '&q=' + param;
     var role = document.getElementById("role").value
     if (role != "") {
         url += '&role=' + role
@@ -65,7 +65,7 @@ async function lockOrUnlock(id, type) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/admin/lockOrUnlockUser?id=' + id;
+    var url = '/api/admin/lockOrUnlockUser?id=' + id;
     const response = await fetch(url, {
         method: 'POST',
         headers: new Headers({
@@ -117,7 +117,7 @@ async function addAdmin() {
         alert("Mật khẩu không trùng khớp")
         return;
     }
-    var url = 'http://localhost:8080/api/admin/addaccount?role='+quyen
+    var url = '/api/admin/addaccount?role='+quyen
     const res = await fetch(url, {
         method: 'POST',
         headers: new Headers({

@@ -4,7 +4,7 @@ async function loadBanner(page, param) {
     if (param == null) {
         param = "";
     }
-    var url = 'http://localhost:8080/api/banner/public/search?page=' + page + '&size=' + size + '&q=' + param;
+    var url = '/api/banner/public/search?page=' + page + '&size=' + size + '&q=' + param;
     const response = await fetch(url, {
     });
     var result = await response.json();
@@ -37,7 +37,7 @@ async function loadBanner(page, param) {
 
 
 async function loadABanner(id) {
-    var url = 'http://localhost:8080/api/banner/admin/findById?id=' + id;
+    var url = '/api/banner/admin/findById?id=' + id;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -77,7 +77,7 @@ async function saveBanner() {
     const filePath = document.getElementById('chonfileanh')
     const formData = new FormData()
     formData.append("file", filePath.files[0])
-    var urlUpload = 'http://localhost:8080/api/public/upload-file';
+    var urlUpload = '/api/public/upload-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -86,9 +86,9 @@ async function saveBanner() {
         linkImage = await res.text();
     }
 
-    var url = 'http://localhost:8080/api/banner/admin/create';
+    var url = '/api/banner/admin/create';
     if (id != "" && id != null) {
-        url = 'http://localhost:8080/api/banner/admin/update';
+        url = '/api/banner/admin/update';
     }
     var banner = {
         "id": id,
@@ -125,7 +125,7 @@ async function deleteBanner(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/banner/admin/delete?id=' + id;
+    var url = '/api/banner/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -143,7 +143,7 @@ async function deleteBanner(id) {
 }
 
 async function loadCategoryProduct() {
-    var url = 'http://localhost:8080/api/category/public/findAll';
+    var url = '/api/category/public/findAll';
     const response = await fetch(url, {
         method: 'GET'
     });

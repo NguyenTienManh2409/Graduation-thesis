@@ -70,7 +70,7 @@ function formatmoney(money) {
 
 async function checkroleEmployee() {
     var token = localStorage.getItem("token");
-    var url = 'http://localhost:8080/api/employee/check-role-employee';
+    var url = '/api/employee/check-role-employee';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({

@@ -7,7 +7,7 @@ async function loadInvoice(page) {
     var type = document.getElementById("type").value
     var trangthai = document.getElementById("trangthai").value
     var sort = document.getElementById("sort").value
-    var url = 'http://localhost:8080/api/invoice/admin/find-all?page=' + page + '&size=' + size + '&sort=' + sort;
+    var url = '/api/invoice/admin/find-all?page=' + page + '&size=' + size + '&sort=' + sort;
     if (start != "" && end != "") {
         url += '&from=' + start + '&to=' + end;
     }
@@ -52,7 +52,7 @@ async function loadInvoice(page) {
 }
 
 async function loadDetailInvoice(id) {
-    var url = 'http://localhost:8080/api/invoice-detail/admin/find-by-invoice?idInvoice='+id;
+    var url = '/api/invoice-detail/admin/find-by-invoice?idInvoice='+id;
     const res = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -77,7 +77,7 @@ async function loadDetailInvoice(id) {
     }
     document.getElementById("listDetailinvoice").innerHTML = main
 
-    var url = 'http://localhost:8080/api/invoice/admin/find-by-id?idInvoice='+id;
+    var url = '/api/invoice/admin/find-by-id?idInvoice='+id;
     const resp = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -105,7 +105,7 @@ function openStatus(idinvoice, idstatus) {
 async function updateStatus() {
     var trangthai = document.getElementById("trangthaiupdate").value
     var idinvoice = document.getElementById("iddonhangupdate").value
-    var url = 'http://localhost:8080/api/invoice/admin/update-status?idInvoice=' + idinvoice + '&status=' + trangthai;
+    var url = '/api/invoice/admin/update-status?idInvoice=' + idinvoice + '&status=' + trangthai;
     const res = await fetch(url, {
         method: 'POST',
         headers: new Headers({
@@ -124,7 +124,7 @@ async function updateStatus() {
 }
 
 async function loadStatusUpdate() {
-    var url = 'http://localhost:8080/api/invoice/admin/all-status';
+    var url = '/api/invoice/admin/all-status';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -140,7 +140,7 @@ async function loadStatusUpdate() {
 }
 
 async function loadAllStatus() {
-    var url = 'http://localhost:8080/api/invoice/admin/all-status';
+    var url = '/api/invoice/admin/all-status';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({

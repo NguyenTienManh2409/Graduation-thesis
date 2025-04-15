@@ -4,7 +4,7 @@ async function loadTrademark(page, param) {
     if (param == null) {
         param = "";
     }
-    var url = 'http://localhost:8080/api/trademark/public/search?page=' + page + '&size=' + size + '&q=' + param;
+    var url = '/api/trademark/public/search?page=' + page + '&size=' + size + '&q=' + param;
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -34,7 +34,7 @@ async function loadTrademark(page, param) {
 
 
 async function loadATrademark(id) {
-    var url = 'http://localhost:8080/api/trademark/admin/findById?id=' + id;
+    var url = '/api/trademark/admin/findById?id=' + id;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -56,9 +56,9 @@ async function saveTrademark() {
     var id = document.getElementById("idtrademark").value
     var name = document.getElementById("trademarkname").value
 
-    var url = 'http://localhost:8080/api/trademark/admin/create';
+    var url = '/api/trademark/admin/create';
     if (id != "" && id != null) {
-        url = 'http://localhost:8080/api/trademark/admin/update';
+        url = '/api/trademark/admin/update';
     }
     var trademark = {
         "id": id,
@@ -88,7 +88,7 @@ async function deleteTrademark(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/trademark/admin/delete?id=' + id;
+    var url = '/api/trademark/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -106,7 +106,7 @@ async function deleteTrademark(id) {
 }
 
 async function loadTrademarkProduct() {
-    var url = 'http://localhost:8080/api/trademark/public/findAll';
+    var url = '/api/trademark/public/findAll';
     const response = await fetch(url, {
         method: 'GET'
     });

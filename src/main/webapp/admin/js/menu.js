@@ -105,7 +105,7 @@ function formatmoney(money) {
 
 async function checkroleAdmin() {
     var token = localStorage.getItem("token");
-    var url = 'http://localhost:8080/api/admin/check-role-admin';
+    var url = '/api/admin/check-role-admin';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({

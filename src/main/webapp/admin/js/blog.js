@@ -2,7 +2,7 @@ var token = localStorage.getItem("token");
 var size = 10;
 async function loadBlog(page) {
     var sort = document.getElementById("sort").value
-    var url = 'http://localhost:8080/api/blog/public/findAll?page=' + page + '&size=' + size + '&sort=' + sort;
+    var url = '/api/blog/public/findAll?page=' + page + '&size=' + size + '&sort=' + sort;
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -38,7 +38,7 @@ async function saveBlog() {
     document.getElementById("loading").style.display = 'block'
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
-    var url = 'http://localhost:8080/api/blog/admin/create';
+    var url = '/api/blog/admin/create';
 
     var title = document.getElementById("title").value
     var description = document.getElementById("description").value
@@ -48,7 +48,7 @@ async function saveBlog() {
     const filePath = document.getElementById('fileimage')
     const formData = new FormData()
     formData.append("file", filePath.files[0])
-    var urlUpload = 'http://localhost:8080/api/public/upload-file';
+    var urlUpload = '/api/public/upload-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -93,7 +93,7 @@ async function saveBlog() {
 async function loadABlog() {
     var id = window.location.search.split('=')[1];
     if (id != null) {
-        var url = 'http://localhost:8080/api/blog/public/findById?id=' + id;
+        var url = '/api/blog/public/findById?id=' + id;
         const response = await fetch(url, {
             method: 'GET'
         });
@@ -113,7 +113,7 @@ async function deleteBlog(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/blog/admin/delete?id=' + id;
+    var url = '/api/blog/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({

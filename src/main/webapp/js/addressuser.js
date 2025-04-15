@@ -1,5 +1,5 @@
 async function loadAddressUser() {
-    var url = 'http://localhost:8080/api/user-address/user/my-address';
+    var url = '/api/user-address/user/my-address';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -42,7 +42,7 @@ async function loadAddressUser() {
 }
 
 async function loadAddressUserById(id) {
-    var url = 'http://localhost:8080/api/user-address/user/findById?id=' + id;
+    var url = '/api/user-address/user/findById?id=' + id;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -95,9 +95,9 @@ async function addAddressUser() {
             id: ward
         }
     }
-    var url = 'http://localhost:8080/api/user-address/user/create';
+    var url = '/api/user-address/user/create';
     if (id != "" && id != null) {
-        url = 'http://localhost:8080/api/user-address/user/update';
+        url = '/api/user-address/user/update';
     }
     const response = await fetch(url, {
         method: 'POST',
@@ -129,7 +129,7 @@ async function deleteAddressUser(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/user-address/user/delete?id=' + id;
+    var url = '/api/user-address/user/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
@@ -149,7 +149,7 @@ async function deleteAddressUser(id) {
 
 var listAddUser = [];
 async function loadAddressUserSelect() {
-    var url = 'http://localhost:8080/api/user-address/user/my-address';
+    var url = '/api/user-address/user/my-address';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -218,7 +218,7 @@ async function loadAddInfor() {
 
 
 async function loadTinhShip(tentinh){
-    var respon = await fetch('http://localhost:8080/api/shipping/public/province', {});
+    var respon = await fetch('/api/shipping/public/province', {});
     var provinces = await respon.json();
     var province = null;
     for(var i=0; i< provinces.data.length; i++){
@@ -229,7 +229,7 @@ async function loadTinhShip(tentinh){
     return province
 }
 async function loadHuyenShip(tenhuyen, ProvinceID){
-    var respon = await fetch('http://localhost:8080/api/shipping/public/district?provinceId='+ProvinceID, {});
+    var respon = await fetch('/api/shipping/public/district?provinceId='+ProvinceID, {});
     var districts = await respon.json();
     var district = null;
     for(var i=0; i< districts.data.length; i++){
@@ -241,7 +241,7 @@ async function loadHuyenShip(tenhuyen, ProvinceID){
 }
 
 async function loadXaShip(tenxa, DistrictID){
-    var respon = await fetch('http://localhost:8080/api/shipping/public/wards?districtId='+DistrictID, {});
+    var respon = await fetch('/api/shipping/public/wards?districtId='+DistrictID, {});
     var wards = await respon.json();
     var ward = null;
     for(var i=0; i< wards.data.length; i++){

@@ -5,7 +5,7 @@ function handleCredentialResponse(response) {
 }
 
 async function sendLoginRequestToBackend(accessToken) {
-    var response = await fetch('http://localhost:8080/api/login/google', {
+    var response = await fetch('/api/login/google', {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain'
@@ -34,7 +34,7 @@ async function sendLoginRequestToBackend(accessToken) {
 
 
 async function login() {
-    var url = 'http://localhost:8080/api/login'
+    var url = '/api/login'
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
     var user = {
@@ -78,7 +78,7 @@ async function login() {
 }
 
 async function regis() {
-    var url = 'http://localhost:8080/api/regis'
+    var url = '/api/regis'
     var email = document.getElementById("email").value
     var fullname = document.getElementById("fullname").value
     var phone = document.getElementById("phone").value
@@ -122,7 +122,7 @@ async function confirmAccount() {
     var uls = new URL(document.URL)
     var email = uls.searchParams.get("email");
     var key = document.getElementById("maxacthuc").value;
-    var url = 'http://localhost:8080/api/active-account?email=' + email + '&key=' + key
+    var url = '/api/active-account?email=' + email + '&key=' + key
     const res = await fetch(url, {
         method: 'POST'
     });
@@ -144,7 +144,7 @@ async function confirmAccount() {
 
 async function forgorPassword() {
     var email = document.getElementById("email").value
-    var url = 'http://localhost:8080/api/public/quen-mat-khau?email=' + email
+    var url = '/api/public/quen-mat-khau?email=' + email
     const res = await fetch(url, {
         method: 'POST'
     });
@@ -174,7 +174,7 @@ async function datLaiMatKhau() {
     var uls = new URL(document.URL)
     var email = uls.searchParams.get("email");
     var key = uls.searchParams.get("key");
-    var url = 'http://localhost:8080/api/public/dat-lai-mat-khau?email=' + email+'&key='+key+'&password='+password
+    var url = '/api/public/dat-lai-mat-khau?email=' + email+'&key='+key+'&password='+password
     const res = await fetch(url, {
         method: 'POST'
     });
@@ -199,7 +199,7 @@ async function changePassword() {
     var oldpass = document.getElementById("oldpass").value
     var newpass = document.getElementById("newpass").value
     var renewpass = document.getElementById("renewpass").value
-    var url = 'http://localhost:8080/api/user/change-password';
+    var url = '/api/user/change-password';
     if (newpass != renewpass) {
         alert("mật khẩu mới không trùng khớp");
         return;

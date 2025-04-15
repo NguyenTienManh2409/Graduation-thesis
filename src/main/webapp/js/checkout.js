@@ -2,7 +2,7 @@ var token = localStorage.getItem("token");
 var exceptionCode = 417;
 async function checkroleUser() {
     var token = localStorage.getItem("token");
-    var url = 'http://localhost:8080/api/user/check-role-user';
+    var url = '/api/user/check-role-user';
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -19,7 +19,7 @@ var total = 0;
 var listSize = [];
 var giamgia = 0;
 async function loadCartCheckOut() {
-    var url = 'http://localhost:8080/api/cart/user/count-cart' ;
+    var url = '/api/cart/user/count-cart' ;
     const res = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -32,7 +32,7 @@ async function loadCartCheckOut() {
         window.location.replace("giohang");
     }
 
-    var url = 'http://localhost:8080/api/cart/user/my-cart' ;
+    var url = '/api/cart/user/my-cart' ;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -76,7 +76,7 @@ var voucherCode = null;
 var discountVou = 0;
 async function loadVoucher() {
     var code = document.getElementById("codevoucher").value
-    var url = 'http://localhost:8080/api/voucher/public/findByCode?code=' + code + '&amount=' + (total - Number(20000));
+    var url = '/api/voucher/public/findByCode?code=' + code + '&amount=' + (total - Number(20000));
     const response = await fetch(url, {});
     var result = await response.json();
     if (response.status == exceptionCode) {
@@ -124,7 +124,7 @@ async function requestPayMentMomo() {
     window.localStorage.setItem('sodiachi', document.getElementById("sodiachi").value);
     var returnurl = 'http://localhost:8080/thanhcong';
 
-    var urlinit = 'http://localhost:8080/api/urlpayment';
+    var urlinit = '/api/urlpayment';
     var paymentDto = {
         "content": "TienManhMobile",
         "returnUrl": returnurl,
@@ -165,7 +165,7 @@ async function paymentMomo() {
         "orderIdMomo": orderId,
         "shipCost":  window.localStorage.getItem("shipCost"),
     }
-    var url = 'http://localhost:8080/api/invoice/user/create';
+    var url = '/api/invoice/user/create';
     var token = localStorage.getItem("token");
     const res = await fetch(url, {
         method: 'POST',
@@ -198,7 +198,7 @@ async function paymentCod() {
         "note": note,
         "shipCost": phiShip,
     }
-    var url = 'http://localhost:8080/api/invoice/user/create';
+    var url = '/api/invoice/user/create';
     var token = localStorage.getItem("token");
     const res = await fetch(url, {
         method: 'POST',

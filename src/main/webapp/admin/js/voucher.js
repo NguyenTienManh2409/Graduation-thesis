@@ -1,7 +1,7 @@
 var token = localStorage.getItem("token");
 var size = 10;
 async function loadVoucher(page, start, end) {
-    var url = 'http://localhost:8080/api/voucher/admin/findAll-page?page=' + page + '&size=' + size;
+    var url = '/api/voucher/admin/findAll-page?page=' + page + '&size=' + size;
     if (start != null && start != "" && end != null && end != "" && start != 'null' && end != 'null') {
         url += '&start=' + start + '&end=' + end
     }
@@ -54,7 +54,7 @@ async function loadAVoucher() {
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
     if (id != null) {
-        var url = 'http://localhost:8080/api/voucher/admin/findById?id=' + id;
+        var url = '/api/voucher/admin/findById?id=' + id;
         const response = await fetch(url, {
             method: 'GET',
             headers: new Headers({
@@ -83,9 +83,9 @@ async function saveVoucher() {
     var to = document.getElementById("to").value
     var lockvoucher = document.getElementById("lockvoucher").checked
 
-    var url = 'http://localhost:8080/api/voucher/admin/create';
+    var url = '/api/voucher/admin/create';
     if (id != null) {
-        url = 'http://localhost:8080/api/voucher/admin/update';
+        url = '/api/voucher/admin/update';
     }
     var voucher = {
         "id": id,
@@ -126,7 +126,7 @@ async function deleteVoucher(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/voucher/admin/delete?id=' + id;
+    var url = '/api/voucher/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({

@@ -6,7 +6,7 @@ async function loadProductComment() {
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
     if (id != null) {
-        var url = 'http://localhost:8080/api/product-comment/public/find-by-product?idproduct=' + id;
+        var url = '/api/product-comment/public/find-by-product?idproduct=' + id;
         const response = await fetch(url, {
             method: 'GET',
             headers: new Headers({
@@ -65,7 +65,7 @@ async function uploadMultipleFile(fileInput) {
     for (i = 0; i < fileInput.files.length; i++) {
         formData.append("file", fileInput.files[i])
     }
-    var urlUpload = 'http://localhost:8080/api/public/upload-multiple-file';
+    var urlUpload = '/api/public/upload-multiple-file';
     const res = await fetch(urlUpload, {
         method: 'POST',
         body: formData
@@ -82,7 +82,7 @@ async function saveComment() {
     document.getElementById("loading").style.display = 'block'
     var uls = new URL(document.URL)
     var id = uls.searchParams.get("id");
-    var url = 'http://localhost:8080/api/product-comment/user/create';
+    var url = '/api/product-comment/user/create';
     var noidungbl = document.getElementById("noidungbl").value
     if (document.getElementById("choosefilecmt").files.length > 3) {
         alert("Chỉ được chọn tối đa 3 ảnh");
@@ -120,7 +120,7 @@ async function deleteComment(id) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/product-comment/user/delete?id=' + id;
+    var url = '/api/product-comment/user/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({

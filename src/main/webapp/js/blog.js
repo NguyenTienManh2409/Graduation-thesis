@@ -1,6 +1,6 @@
 var sizeblog = 9;
 async function loadBlogIndex() {
-    var url = 'http://localhost:8080/api/blog/public/findAll?page=0&size=' + sizeblog + '&sort=id,desc';
+    var url = '/api/blog/public/findAll?page=0&size=' + sizeblog + '&sort=id,desc';
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -18,7 +18,7 @@ async function loadBlogIndex() {
 
 
 async function loadBlogList(page) {
-    var url = 'http://localhost:8080/api/blog/public/findAll?page=' + page + '&size=' + sizeblog + '&sort=id,desc';
+    var url = '/api/blog/public/findAll?page=' + page + '&size=' + sizeblog + '&sort=id,desc';
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -58,7 +58,7 @@ async function loadBlogList(page) {
 }
 
 async function loadPrimaryBlogIndex() {
-    var url = 'http://localhost:8080/api/blog/public/findPrimaryBlog';
+    var url = '/api/blog/public/findPrimaryBlog';
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -70,7 +70,7 @@ async function loadPrimaryBlogIndex() {
 }
 
 async function loadPrimaryBlogBv() {
-    var url = 'http://localhost:8080/api/blog/public/findPrimaryBlog';
+    var url = '/api/blog/public/findPrimaryBlog';
     const response = await fetch(url, {
         method: 'GET'
     });
@@ -89,7 +89,7 @@ async function loadPrimaryBlogBv() {
 async function loadABlog() {
     var id = window.location.search.split('=')[1];
     if (id != null) {
-        var url = 'http://localhost:8080/api/blog/public/findById?id=' + id;
+        var url = '/api/blog/public/findById?id=' + id;
         const response = await fetch(url, {
             method: 'GET'
         });

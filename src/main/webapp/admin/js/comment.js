@@ -1,5 +1,5 @@
 async function loadProductComment(id) {
-    var url = 'http://localhost:8080/api/product-comment/public/find-by-product?idproduct=' + id;
+    var url = '/api/product-comment/public/find-by-product?idproduct=' + id;
     const response = await fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -44,7 +44,7 @@ async function deleteComment(id, idproduct) {
     if (con == false) {
         return;
     }
-    var url = 'http://localhost:8080/api/product-comment/admin/delete?id=' + id;
+    var url = '/api/product-comment/admin/delete?id=' + id;
     const response = await fetch(url, {
         method: 'DELETE',
         headers: new Headers({
