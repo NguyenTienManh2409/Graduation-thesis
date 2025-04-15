@@ -4,4 +4,4 @@ The infras AWS include:
 1 ecr: store repo image
 1 ecs: 1 task to deploy
 1 ec2: to connect with rds
-remote backend in S#, lock state with dynamoDB.
+remote backend in S3, lock state with dynamoDB.
