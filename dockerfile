@@ -17,7 +17,7 @@ COPY src/main/webapp/views /app/target/webapp/views
 COPY target/phonestore-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose cổng ứng dụng
-EXPOSE 8080
+EXPOSE 80
 
 # Lệnh chạy ứng dụng
 ENTRYPOINT ["java", "-jar", "app.jar"]
