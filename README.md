@@ -1,23 +1,58 @@
-This is my graduation thesis project.
-Here is the document.
+🎓 Graduation Thesis Project
+Title: TienManhMobile
+Demo: http://174.129.57.156/ (Temporarily unavailable due to AWS hosting limitations)
 
-[21020777_KLTN.pdf](https://github.com/user-attachments/files/18125910/21020777_KLTN.pdf)
+🛠️ Admin account: ADMIN / admin
 
-Link demo:http://174.129.57.156/
+🙋‍♂️ User login: via Google Authentication
 
-account admin: ADMIN / admin
+🌐 Project Overview
+This is my graduation thesis project, designed and developed as a full-stack web application with production-ready deployment on AWS. The system enables [brief description of what your system does, e.g., online phone sales, e-commerce for electronics, etc.].
 
-account user: u can login with googleAuth.
+🔧 Technologies Used
 
-Technology use:
+Backend:
+Java Spring Boot, MySQL
 
-Backend: java spring boot, mysql
+Frontend:
+HTML, CSS, JavaScript
 
-Frontend: html, css, js 
+DevOps & Tools:
+Docker
 
-Devops and tool: docker, aws, terraform.
+AWS (ECS, ECR, S3, RDS, etc.)
 
-Other: linux, jmeter, postman
+Terraform
+
+Others:
+Linux (Ubuntu)
+
+Postman (API testing)
+
+JMeter (Performance testing)
+
+📄 Documentation
+📘 Full Report (PDF)(https://github.com/user-attachments/files/19986594/KLTN_21020777.pdf)
 
 
+📌 Features
+- User authentication via Google OAuth
 
+- Admin dashboard for product and order management
+
+- RESTful APIs for all functionalities
+
+- Responsive design for frontend
+
+- Secure deployment with Docker containers
+
+- Infrastructure as Code using Terraform
+
+Performance and load testing with JMeter
+
+🚀 Deployment
+Deployed on AWS EC2 using Docker
+
+Infrastructure configured using Terraform scripts
+
+Backend and frontend hosted in separate Docker containers
