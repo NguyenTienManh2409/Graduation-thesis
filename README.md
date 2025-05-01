@@ -1,58 +1,86 @@
-🎓 Graduation Thesis Project
-Title: TienManhMobile
-Demo: http://174.129.57.156/ (Temporarily unavailable due to AWS hosting limitations)
+# 🎓 Graduation Thesis Project
 
-🛠️ Admin account: ADMIN / admin
+**Title**: TienManhMobile
 
-🙋‍♂️ User login: via Google Authentication
+**Demo**: [http://174.129.57.156/](http://174.129.57.156/) *(Hiện không còn hoạt động do giới hạn chi phí khi triển khai trên AWS)*
 
-🌐 Project Overview
-This is my graduation thesis project, designed and developed as a full-stack web application with production-ready deployment on AWS. The system enables [brief description of what your system does, e.g., online phone sales, e-commerce for electronics, etc.].
+- 🛠️ Admin account: `ADMIN / admin`  
+- 🙋‍♂️ User login: Google Authentication or create account with Gmail.
 
-🔧 Technologies Used
+---
 
-Backend:
-Java Spring Boot, MySQL
+## 🔧 Technologies Used
 
-Frontend:
-HTML, CSS, JavaScript
+### Backend:
+- Java Spring Boot
+- MySQL
 
-DevOps & Tools:
-Docker
+### Frontend:
+- HTML, CSS, JavaScript
 
-AWS (ECS, ECR, S3, RDS, etc.)
+### DevOps & Tools:
+- Docker
+- AWS (EC2, ECS, ECR, RDS, VPC)
+- Terraform
 
-Terraform
+### Others:
+- Linux (Ubuntu)
+- Postman (for API testing)
+- JMeter (for load/performance testing)
 
-Others:
-Linux (Ubuntu)
+---
 
-Postman (API testing)
-
-JMeter (Performance testing)
-
-📄 Documentation
-📘 Full Report (PDF)(https://github.com/user-attachments/files/19986594/KLTN_21020777.pdf)
+## 📄 Documentation
+- [📘 Full Report (PDF)](https://github.com/user-attachments/files/19986648/KLTN_21020777.pdf)
 
 
-📌 Features
-- User authentication via Google OAuth
+---
 
-- Admin dashboard for product and order management
+## 📊 Key Features
+- Google OAuth 2.0 login for users
+- Admin dashboard for managing products and orders
+- RESTful API architecture
+- Mobile-responsive frontend interface
+- Dockerized microservices architecture
+- Infrastructure as Code with Terraform
+- Performance testing using JMeter
 
-- RESTful APIs for all functionalities
+---
 
-- Responsive design for frontend
+## ☁️ AWS Infrastructure (Provisioned with Terraform)
 
-- Secure deployment with Docker containers
+The project infrastructure was fully deployed on AWS using **Terraform**, with the following components:
 
-- Infrastructure as Code using Terraform
+- **VPC (Virtual Private Cloud)**
+  - 2 Public Subnets
+  - 2 Private Subnets
 
-Performance and load testing with JMeter
+- **RDS (Relational Database Service)**
+  - Stores the MySQL database for the application
+  - Hosted in private subnets for enhanced security
 
-🚀 Deployment
-Deployed on AWS EC2 using Docker
+- **ECR (Elastic Container Registry)**
+  - Used to store Docker images of the application
 
-Infrastructure configured using Terraform scripts
+- **ECS (Elastic Container Service)**
+  - Runs a task to deploy the backend application
 
-Backend and frontend hosted in separate Docker containers
+- **EC2 Instance**
+  - Used for SSH access and connecting to the RDS instance
+
+- **Terraform Remote Backend**
+  - **S3**: Stores Terraform state files
+  - **DynamoDB**: Manages lock states to prevent concurrent deployments
+
+---
+
+## 🚀 Deployment
+1. Build Docker images and push to ECR
+2. Use Terraform to provision infrastructure
+3. ECS pulls the image and deploys the app
+4. EC2 instance used for maintenance and connection to private RDS
+
+---
+
+## 🙏 Acknowledgements
+Thanks to my instructors, teammates, and reviewers for their support during the development of this project.
